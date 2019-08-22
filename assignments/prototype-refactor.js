@@ -26,7 +26,7 @@ class Person3 {
 		return `Stomach is empty now.`;
 	}
 }
-var me = new Person3('Jasyn', 38);
+let me = new Person3('Jasyn', 38);
 console.log(me.greet(), me.eat('Biltong'), me.poop());
 
 
@@ -54,12 +54,12 @@ class Car {
 		return `I've been repaired.`;
 	}
 }
-var car = new Car('2006', 'Opel');
+let car = new Car('2006', 'Opel');
 console.log(car.drive(10), car.crash(), car.repair());
 
 
 /* TASK 3 */
-class Baby extends Person {
+class Baby extends Person3 {
 	constructor(name, age) {
 		super(name, age);
 	}
@@ -67,7 +67,7 @@ class Baby extends Person {
 		return `Baby played and said "Goo-goo ga-ga".`;
 	}
 }
-var baby = new Baby('Arianna', 0.5);
+let baby = new Baby('Arianna', 0.5);
 console.log(baby.greet(), baby.play());
 
 
@@ -121,9 +121,9 @@ class Animal {
 		return `${this.name} is already your pet!`;
 	}
 }
-var aDog = new Animal('Rambo', 'dog', false, 'Woooooof');
-var aCat = new Animal('Babou', 'cat', false, 'Miaawwww');
-var aFox = new Animal(null, 'fox', true, 'Hoooooooooowl');
+let aDog = new Animal('Rambo', 'dog', false, 'Woooooof');
+let aCat = new Animal('Babou', 'cat', false, 'Miaawwww');
+let aFox = new Animal(null, 'fox', true, 'Hoooooooooowl');
 console.log(aDog.talk(), aCat.talk(), aFox.talk());
 console.log(aDog.eat('cat food'), aCat.eat('cat food'), aFox.eat('cat food'));
 console.log(aFox.tame(), aFox.giveName('Princess Carolyn'));
