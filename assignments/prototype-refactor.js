@@ -58,3 +58,14 @@ var car = new Car('2006', 'Opel');
 console.log(car.drive(10), car.crash(), car.repair());
 
 
+/* TASK 3 */
+class Baby extends Person {
+	constructor(name, age) {
+		super(name, age);
+	}
+	play() {
+		return `Baby played and said "Goo-goo ga-ga".`;
+	}
+}
+var baby = new Baby('Arianna', 0.5);
+console.log(baby.greet(), baby.play());
