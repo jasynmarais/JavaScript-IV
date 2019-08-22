@@ -69,3 +69,61 @@ class Baby extends Person {
 }
 var baby = new Baby('Arianna', 0.5);
 console.log(baby.greet(), baby.play());
+
+
+/* TASK 4 */
+class Animal {
+	constructor(name, type, wild, sound) {
+		this.name = (name === null ? 'Unknown' : name);
+		this.type = type;
+		this.tamed = !wild;
+		this.needName = false;
+		this.sound = sound;
+		this.edibles = {
+			dog: ['dog food', 'mice', 'bones'],
+			cat: ['cat food', 'fish', 'meat'],
+			fox: ['rat', 'bird', 'frog'],
+		};
+	}
+	talk() {
+		return `My name is ${this.name} and I'm a ${this.type}. ${this.makeSound()}`;
+	}
+	makeSound() {
+		return `${this.sound}!`;
+	}
+	eat(something) {
+		let isFoodEdible = false;
+		if (this.edibles.hasOwnProperty(this.type)) {
+			isFoodEdible = this.edibles[this.type].includes(something);
+		}
+		return `${this.name} tried eating ${something}` + (isFoodEdible ? ' and liked it!' : ' but didn\'t like it.');
+	}
+	giveName(newName) {
+		if (this.tamed && this.needName) {
+			this.name = newName;
+			this.needName = false;
+			return `This ${this.type} is now called ${newName}.`;
+		} else if (!this.tamed) {
+			return `You can't give a name to this ${this.type} because it's not tamed!`;
+		}
+		return `This ${this.type} already has a name!`;
+	}
+	tame() {
+		if (!this.tamed) {
+			let chanceToTame = Math.random();
+			if (chanceToTame > 0.5) {
+				this.tamed = true;
+				this.needName = true;
+				return `You have successfully tamed this ${this.name} ${this.type}! Don't forget to give it a name!`;
+			}
+			return `You have failed to tame this ${this.name} ${this.type}.`;
+		}
+		return `${this.name} is already your pet!`;
+	}
+}
+var aDog = new Animal('Rambo', 'dog', false, 'Woooooof');
+var aCat = new Animal('Babou', 'cat', false, 'Miaawwww');
+var aFox = new Animal(null, 'fox', true, 'Hoooooooooowl');
+console.log(aDog.talk(), aCat.talk(), aFox.talk());
+console.log(aDog.eat('cat food'), aCat.eat('cat food'), aFox.eat('cat food'));
+console.log(aFox.tame(), aFox.giveName('Princess Carolyn'));
