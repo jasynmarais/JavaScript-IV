@@ -65,15 +65,16 @@ console.log(car.drive(25), car.crash(), car.repair());
 
 /* TASK 3 */
 
-function Baby(name, age) {
-    Person.call(this, name, age);
+class Baby extends Person3 {
+	constructor(name, age) {
+		super(name, age);
+	}
+	play() {
+		return `Baby played and said "Goo-goo ga-ga".`;
+	}
 }
-Baby.prototype = Object.create(Person.prototype);
-Baby.prototype.play = function () {
-return `Baby played and said "Goo-goo ga-ga".`;
-};
 
-const baby = new Baby('Arianna', 0.5);
+let baby = new Baby('Arianna', 0.5);
 
 console.log(baby.greet(), baby.play());
 
