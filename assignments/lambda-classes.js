@@ -1,3 +1,5 @@
+console.log('Lambda-classes:');
+
 // CODE here for your Lambda Classes
 /*
 #### Person
@@ -120,3 +122,56 @@ let mojo = new Student({
 	favSubjects: ['HTML', 'CSS', 'Javascript'], 
 	previousBackground: `Rat Catcher`
 });
+/*
+#### Project Manager
+* Now that we have instructors and students, we'd be nowhere without our PM's
+* ProjectManagers are extensions of Instructors
+* ProjectManagers have the following unique props:
+  * `gradClassName`: i.e. CS1
+  * `favInstructor`: i.e. Sean
+* ProjectManagers have the following Methods:
+  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+*/
+class ProjectManager extends Instructor {
+	constructor(data) {
+		super(data);
+		this.gradClassName = data.gradClassName;
+		this.favInstructor = data.favInstructor;
+	}
+	standUp(channel) {
+		console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+		return `${this.name} favourite subjects: ${this.favSubjects}`;
+	}
+	debugsCode(student, subject) {
+		console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+		return `${this.name} debugs ${student.name}'s code on ${subject}`;
+	}
+}
+let jasyn = new ProjectManager({
+	name: 'Jasyn', location: 'ZA', age: 38,
+	gradClassName: 'JS-I', 
+	favInstructor: 'Gabriel', 
+});
+let lolo = new ProjectManager({
+	name: 'Lolo', location: 'UK', age: 37,
+	gradClassName: 'JS-II', 
+	favInstructor: 'Gabriel', 
+});
+let babou = new ProjectManager({
+	name: 'Babou', location: 'US', age: 27,
+	gradClassName: 'JS-III', 
+	favInstructor: 'Gabriel', 
+});
+
+grant.demo('Javascript Fundamentals');
+shaz.grade(sam, 'Javascript Fundamentals');
+arianna.randGrade(mojo);
+
+byron.listSubjects();
+sam.PRAssignment('Javascript Fundamentals');
+mojo.sprintChallenge('Javascript Fundamentals');
+
+jasyn.standUp('#webeu3');
+lolo.debugsCode(byron, 'Javascript Fundamentals');
+babou.debugsCode(sam, 'Javascript Fundamentals');

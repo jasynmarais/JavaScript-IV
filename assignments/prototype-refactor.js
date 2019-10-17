@@ -1,3 +1,5 @@
+console.log('Prototype-refactor:');
+
 /* 
 
 Prototype Refactor
