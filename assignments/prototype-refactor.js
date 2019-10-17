@@ -8,34 +8,39 @@ Prototype Refactor
 
 */
 
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-    this.stomach = [];
-}
-Person.prototype.greet = function () {
-    return `My name is ${this.name} and I'm ${this.age} years old.`;
-};
-Person.prototype.eat = function (food) {
-    this.stomach.push(food);
-    return `${this.name} just ate ${food}.`;
-};
-Person.prototype.poop = function () {
-    this.stomach = [];
-    return `I pooped and now my stomach is empty.`;
-};
+/* TASK 1 */
 
-const me = new Person('Billy Bob', 18);
+class Person3 { 
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+		this.stomach = [];
+	}
+	greet() {
+		return `My name is ${this.name} and I'm ${this.age} years old.`;
+	}
+	eat(food) {
+		this.stomach.push(food);
+		return `${this.name} just ate ${food}.`;
+	}
+	poop() {
+		this.stomach = [];
+		return `I pooped and now my stomach is empty.`;
+	}
+}
+
+let me = new Person3('Billy Bob', 18);
 
 console.log(me.greet(), me.eat('KFC'), me.poop());
 
+/* TASK 2 */
 
 function Car(model, make) {
     this.model = model;
     this.make = make;
     this.odometer = 0;
     this.canDrive = true;
-  this.tank = 0;
+    this.tank = 0;
 }
 Car.prototype.drive = function (distance) {
     if (this.canDrive) {
@@ -57,6 +62,7 @@ const car = new Car('2006', 'Opel');
 
 console.log(car.drive(25), car.crash(), car.repair());
 
+/* TASK 3 */
 
 function Baby(name, age) {
     Person.call(this, name, age);
