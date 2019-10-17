@@ -1,4 +1,4 @@
-console.log('Prototype-refactor:');
+console.log('****Prototype-refactor:****');
 
 /* 
 
