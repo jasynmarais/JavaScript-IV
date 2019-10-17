@@ -67,3 +67,56 @@ let arianna = new Instructor({
 	name: 'Arianna', location: 'UK', age: 29,
 	favLanguage: 'JavaScript', specialty: 'Back-end', catchPhrase: `Master is Sacred`
 });
+/*
+#### Student
+* Now we need some students!
+* Student uses the same attributes that have been set up by Person
+* Student has the following unique props:
+  * `previousBackground` i.e. what the Student used to do before Lambda School
+  * `className` i.e. CS132
+  * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+* Student has the following methods:
+  * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
+  * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+  * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+*/
+class Student extends Person {
+	constructor(data) {
+		super(data);
+		this.className = data.className;
+		this.favSubjects = data.favSubjects;
+		this.previousBackground = data.previousBackground;
+		
+		this.grade = (Math.random() * 100).toFixed(0); // stretch
+	}
+	listSubjects() {
+		console.log(`${this.name} favourite subjects: ${this.favSubjects}`);
+		return `${this.name} favourite subjects: ${this.favSubjects}`;
+	}
+	PRAssignment(subject) {
+		console.log(`${this.name} has submitted a PR for ${subject}`);
+		return `${this.name} has submitted a PR for ${subject}`;
+	}
+	sprintChallenge(subject) {
+		console.log(`${this.name} has begun sprint challenge on ${subject}`);
+		return `${this.name} has begun sprint challenge on ${subject}`;
+	}
+}
+let byron = new Student({
+	name: 'Byron', location: 'ZA', age: 37,
+	className: 'JS-I', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Advertising`
+});
+let sam = new Student({
+	name: 'Sam', location: 'UK', age: 36,
+	className: 'JS-II', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Film Editor`
+});
+let mojo = new Student({
+	name: 'Mojo', location: 'US', age: 29,
+	className: 'JS-III', 
+	favSubjects: ['HTML', 'CSS', 'Javascript'], 
+	previousBackground: `Rat Catcher`
+});
