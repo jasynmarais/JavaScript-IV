@@ -35,30 +35,31 @@ console.log(me.greet(), me.eat('KFC'), me.poop());
 
 /* TASK 2 */
 
-function Car(model, make) {
-    this.model = model;
-    this.make = make;
-    this.odometer = 0;
-    this.canDrive = true;
-    this.tank = 0;
+class Car {
+	constructor(model, make) {
+		this.model = model;
+		this.make = make;
+		this.odometer = 0;
+		this.canDrive = true;
+	}
+	drive(distance) {
+		if (this.canDrive) {
+			this.odometer += Number(distance);
+			return `Drove ${distance} miles. Odometer: ${this.odometer}.`;
+		}
+		return `I crashed at ${this.odometer} miles!`;
+	}
+	crash() {
+		this.canDrive = false;
+		return `I just crashed.`;
+	}
+	repair() {
+		this.canDrive = true;
+		return `I've been repaired.`;
+	}
 }
-Car.prototype.drive = function (distance) {
-    if (this.canDrive) {
-              this.odometer += Number(distance);
-              return `I drove ${distance} miles. Odometer: ${this.odometer} miles.`;
-}
-    return `I crashed at ${this.odometer} miles!`;
-};
-Car.prototype.crash = function () {
-    this.canDrive = false;
-    return `I just crashed.`;
-};
-Car.prototype.repair = function () {
-    this.canDrive = true;
-    return `I've been repaired.`;
-};
 
-const car = new Car('2006', 'Opel');
+let car = new Car('2006', 'Opel');
 
 console.log(car.drive(25), car.crash(), car.repair());
 
@@ -75,3 +76,4 @@ return `Baby played and said "Goo-goo ga-ga".`;
 const baby = new Baby('Arianna', 0.5);
 
 console.log(baby.greet(), baby.play());
+
