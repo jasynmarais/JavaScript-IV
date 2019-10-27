@@ -175,3 +175,18 @@ mojo.sprintChallenge('Javascript Fundamentals');
 jasyn.standUp('#webeu4');
 lolo.debugsCode(byron, 'Javascript Fundamentals');
 babou.debugsCode(sam, 'Javascript Fundamentals');
+
+/*
+console.log(grant);
+console.log(shaz);
+console.log(arianna);
+
+console.log(sam);
+console.log(byron);
+console.log(mojo);
+
+console.log(jasyn);
+console.log(lolo);
+console.log(babou);
+*/
+
